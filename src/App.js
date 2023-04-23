@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Navbar } from './components/Navbar';
 import { TodoRows } from './components/TodoRows';
+import './App.css';
+
+
 export default class App extends Component{
   constructor(props)  {
     super(props);
@@ -8,9 +11,8 @@ export default class App extends Component{
     this.state = {
       userName: 'BOCCHI',
       todoItems:[
-        {action:'Buy Milk', done: false},
-        {action:'Dentist at 5pm', done: false},
-        {action:'Go to Gym', done: false},
+        //{action:' ', done: true},
+        
       ],
       newTodo: '',
     };
@@ -36,21 +38,23 @@ export default class App extends Component{
 
   toggleDone =(todo) =>
     this.setState({
-      todoItems: this.state.todoItems.map((item)=> 
+      todoItems: this.state.todoItems.map((item)=>
         item.action === todo.action ? {...item,done: !item.done} : item
       ),
   });
-  
+
   render =() =>(
     <div className="container">
       <div className="row">
+        <div className='head'>
         <Navbar name={this.state.userName}/>
+        </div>
         <div className='col-12'>
             <input className='form-control' 
             value={this.state.newTodo}
             onChange={this.updateValue}
             />
-            <button className='btn btn-primary' onClick={this.newTodo}>
+            <button class='button' onClick={this.newTodo}>
               Add
             </button>
         </div>

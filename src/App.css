@@ -1,0 +1,39 @@
+body, html {
+    height: 100vh;
+    width: 100%;
+  }
+
+body{
+    background-image: url(./images/bg.jpg);
+    background-size: 205vh 100vh;
+}
+
+.head{
+    border: 30px;
+    border-radius: 5px;
+    background-color: rgb(31, 16, 33);
+    margin-bottom: 10px;
+    color: beige;
+}
+.button{
+    margin-top: 10px;
+    background-color: rgb(66, 60, 90);
+    color: rgb(223, 255, 255);
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-family: cursive;
+}
+
+table{
+    margin-top: 10px;
+    border-radius: 20px;
+}
+thead{
+    background-color: rgb(162, 139, 231);
+}
+
+tbody{
+    background-color: aliceblue;
+    opacity: 0.9;
+    font-size: 20px;
+}
