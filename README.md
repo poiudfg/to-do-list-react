@@ -70,3 +70,5 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ### The following class diagram has.
 
 ![image](https://user-images.githubusercontent.com/94011063/235308772-1024920b-e7d6-4a2c-87e4-dbb0bae3a9e5.png)
+
+From the class diargram, it can be seen that App, todoRow and Navbar are subclass component
