@@ -1,21 +1,23 @@
-body, html {
+body,
+html {
     height: 100vh;
     width: 100%;
-  }
+}
 
-body{
+body {
     background-image: url(./images/bg.jpg);
     background-size: 205vh 100vh;
 }
 
-.head{
+.head {
     border: 30px;
     border-radius: 5px;
     background-color: rgb(31, 16, 33);
     margin-bottom: 10px;
     color: beige;
 }
-.button{
+
+.button {
     margin-top: 10px;
     background-color: rgb(66, 60, 90);
     color: rgb(223, 255, 255);
@@ -24,16 +26,22 @@ body{
     font-family: cursive;
 }
 
-table{
+table {
     margin-top: 10px;
     border-radius: 20px;
 }
-thead{
+
+thead {
     background-color: rgb(162, 139, 231);
 }
 
-tbody{
+tbody {
     background-color: aliceblue;
     opacity: 0.9;
     font-size: 20px;
+}
+
+.container {
+    background-color: black;
+    opacity: 0.9;
 }
