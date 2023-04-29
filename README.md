@@ -1,5 +1,23 @@
 # to-do-list-react
 
+* [install](#npm-install )
+* [React App](#Getting-Started-with-Create-React-App)
+* [oop](#OOP)
+
+# npm install 
+
+ * install node_moudule
+
+```bash
+npm install
+```
+
+ * install bootstrap 5 react
+
+```bash
+npm install react-bootstrap bootstrap
+```
+
 
 
 # Getting Started with Create React App
@@ -72,3 +90,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# OOP
+
+  Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or objects, rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
