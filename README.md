@@ -4,7 +4,8 @@ To-do lists are a list of tasks that an individual needs to complete or accompli
 ### index :
 * [install](#npm-install )
 * [React App](#Getting-Started-with-Create-React-App)
-* [oop](#OOP)
+* [OOP](#OOP)
+* [Principles OOP](#Principles-OOP)
 
 # npm install 
 
@@ -73,6 +74,8 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 From the class diargram, it can be seen that App, todoRow and Navbar are subclass component
 
+---
+
 ### Class 1 : Component
 
 React lets define components as classes or functions. Components defined as classes currently provide more features which are described in detail on this page. To define a React component class, Use methods are called in the following order of a component is being created and inserted into the DOM:
@@ -81,6 +84,8 @@ React lets define components as classes or functions. Components defined as clas
 * render()
 
 [Detail React.Component](https://legacy.reactjs.org/docs/react-component.html)
+
+---
 
 ### Class 2 : App
 
@@ -153,6 +158,8 @@ export default class App extends Component {
     )
 }
 ```
+---
+
 ### Class 3 : Navbar
 
 ```js
@@ -166,6 +173,7 @@ export class Navbar extends Component {
     );
 }
 ```
+---
 
 ### Class 4 : TodoRows
 
@@ -185,3 +193,116 @@ export class TodoRows extends Component {
     );
 }
 ```
+---
+
+# Principles OOP
+
+Object-oriented programming is based on the following principles:
+
+### Encapsulation. 
+* This principle states that all important information is contained inside an object and only select information is exposed. The implementation and state of each object are privately held inside a defined class. Other objects do not have access to this class or the authority to make changes. They are only able to call a list of public functions or methods. This characteristic of data hiding provides greater program security and avoids unintended data corruption.
+
+for example : 
+```js
+        this.state = {
+            userName: 'BOCCHI',
+            todoItems: [
+                //{action:' ', done: true},
+
+            ],
+```
+---
+
+### Abstraction. 
+* Objects only reveal internal mechanisms that are relevant for the use of other objects, hiding any unnecessary implementation code. The derived class can have its functionality extended. This concept can help developers more easily make additional changes or additions over time.
+
+> In this code there is no ฟbstraction
+
+---
+
+### Inheritance. 
+* Classes can reuse code from other classes. Relationships and subclasses between objects can be assigned, enabling developers to reuse common logic while still maintaining a unique hierarchy. This property of OOP forces a more thorough data analysis, reduces development time and ensures a higher level of accuracy.
+
+for example : 
+```js
+export default class App extends Component {
+    ...
+}
+```
+```js
+export class TodoRows extends Component {
+    ...
+}
+```
+```js
+export class Navbar extends Component {
+    ...
+}
+```
+In this code, inheriting from Component class, it can make it possible to use Component's built-in functions such as constructor(props), render(), etc.
+
+---
+
+### Polymorphism. 
+* Objects are designed to share behaviors and they can take on more than one form. The program will determine which meaning or usage is necessary for each execution of that object from a parent class, reducing the need to duplicate code. A child class is then created, which extends the functionality of the parent class. Polymorphism allows different types of objects to pass through the same interface.
+
+for example : render 
+```js
+export default class App extends Component {
+    render = () => ( 
+        <div className = "container" >
+            <div className = "row" >
+                <div className = 'head' >
+                    <Navbar name = { this.state.userName }/> 
+                </div> 
+                <div className = 'col-12' >
+                    <input className = 'form-control' placeholder = 'Enter Text' value = { this.state.newTodo } onChange = { this.updateValue }/> 
+                    <button class = 'button' onClick = { this.newTodo } > Add </button> 
+                </div> 
+                <div className = 'col-12' >
+                    <table className = 'table' >
+                        <thead >
+                            <tr >
+                                <th > Task </th> 
+                                <th > Complete </th> 
+                            </tr> 
+                        </thead> 
+                    <tbody > { this.todoRows() } </tbody> 
+                    </table> 
+                </div> 
+            </div> 
+        </div>
+    )
+}
+```
+
+```js
+export class TodoRows extends Component {
+    render = () => (
+      <tr>
+        <td>{this.props.item.action}</td>
+        <td>
+          <input 
+            type="checkbox"
+            checked={this.props.item.done}
+            onChange ={ () => this.props.callback(this.props.item)}
+          />
+        </td>
+      </tr>
+    );
+}
+```
+
+```js
+export class Navbar extends Component {
+    render = () => (
+        <div className="col-12">
+            <h2 className="text-while text-center p2">
+                {this.props.name} TO DO LIST
+            </h2>
+        </div>
+    );
+}
+```
+
+From our code it will be the inherits the render method from the component class and overriding it.
