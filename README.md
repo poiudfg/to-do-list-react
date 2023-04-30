@@ -216,7 +216,7 @@ for example :
 ### Abstraction. 
 * Objects only reveal internal mechanisms that are relevant for the use of other objects, hiding any unnecessary implementation code. The derived class can have its functionality extended. This concept can help developers more easily make additional changes or additions over time.
 
-> In this code there is no ฟbstraction
+> In this code there is no Abstraction
 
 ---
 
