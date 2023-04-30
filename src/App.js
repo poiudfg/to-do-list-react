@@ -46,44 +46,28 @@ export default class App extends Component {
             ),
         });
 
-    render = () => ( <
-        div className = "container" >
-        <
-        div className = "row" >
-        <
-        div className = 'head' >
-        <
-        Navbar name = { this.state.userName }
-        /> <
-        /div> <
-        div className = 'col-12' >
-        <
-        input className = 'form-control'
-        placeholder = 'Enter Text'
-        value = { this.state.newTodo }
-        onChange = { this.updateValue }
-        /> <
-        button class = 'button'
-        onClick = { this.newTodo } >
-        Add <
-        /button> <
-        /div> <
-        div className = 'col-12' >
-        <
-        table className = 'table' >
-        <
-        thead >
-        <
-        tr >
-        <
-        th > Task < /th> <
-        th > Complete < /th> <
-        /tr> <
-        /thead> <
-        tbody > { this.todoRows() } < /tbody> <
-        /table> <
-        /div> <
-        /div> <
-        /div>
+    render = () => ( 
+        <div className = "container" >
+            <div className = "row" >
+                <div className = 'head' >
+                    <Navbar name = { this.state.userName }/> 
+                </div> 
+                <div className = 'col-12' >
+                    <input className = 'form-control' placeholder = 'Enter Text' value = { this.state.newTodo } onChange = { this.updateValue }/> 
+                    <button class = 'button' onClick = { this.newTodo } > Add </button> 
+                </div> 
+                <div className = 'col-12' >
+                    <table className = 'table' >
+                        <thead >
+                            <tr >
+                                <th > Task </th> 
+                                <th > Complete </th> 
+                            </tr> 
+                        </thead> 
+                    <tbody > { this.todoRows() } </tbody> 
+                    </table> 
+                </div> 
+            </div> 
+        </div>
     )
 }
