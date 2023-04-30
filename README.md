@@ -72,3 +72,116 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 ![image](https://user-images.githubusercontent.com/94011063/235308772-1024920b-e7d6-4a2c-87e4-dbb0bae3a9e5.png)
 
 From the class diargram, it can be seen that App, todoRow and Navbar are subclass component
+
+### Class 1 : Component
+
+React lets define components as classes or functions. Components defined as classes currently provide more features which are described in detail on this page. To define a React component class, Use methods are called in the following order of a component is being created and inserted into the DOM:
+
+* constructor()
+* render()
+
+[Detail React.Component](https://legacy.reactjs.org/docs/react-component.html)
+
+### Class 2 : App
+
+```js
+export default class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            userName: 'BOCCHI',
+            todoItems: [
+                //{action:' ', done: true},
+
+            ],
+            newTodo: '',
+        };
+    }
+
+    updateValue = (event) => {
+        this.setState({ newTodo: event.target.value });
+    };
+
+    newTodo = () => {
+        this.setState({
+            todoItems: [
+                ...this.state.todoItems,
+                { action: this.state.newTodo, done: false },
+            ],
+        });
+    };
+
+    todoRows = () =>
+        this.state.todoItems.map((item) => ( <
+            TodoRows key = { item.action }
+            item = { item }
+            callback = { this.toggleDone }
+            />
+        ));
+
+    toggleDone = (todo) =>
+        this.setState({
+            todoItems: this.state.todoItems.map((item) =>
+                item.action === todo.action ? {...item, done: true } : item
+            ),
+        });
+
+    render = () => ( 
+        <div className = "container" >
+            <div className = "row" >
+                <div className = 'head' >
+                    <Navbar name = { this.state.userName }/> 
+                </div> 
+                <div className = 'col-12' >
+                    <input className = 'form-control' placeholder = 'Enter Text' value = { this.state.newTodo } onChange = { this.updateValue }/> 
+                    <button class = 'button' onClick = { this.newTodo } > Add </button> 
+                </div> 
+                <div className = 'col-12' >
+                    <table className = 'table' >
+                        <thead >
+                            <tr >
+                                <th > Task </th> 
+                                <th > Complete </th> 
+                            </tr> 
+                        </thead> 
+                    <tbody > { this.todoRows() } </tbody> 
+                    </table> 
+                </div> 
+            </div> 
+        </div>
+    )
+}
+```
+### Class 3 : Navbar
+
+```js
+export class Navbar extends Component {
+    render = () => (
+        <div className="col-12">
+            <h2 className="text-while text-center p2">
+                {this.props.name} TO DO LIST
+            </h2>
+        </div>
+    );
+}
+```
+
+### Class 4 : TodoRows
+
+```js
+export class TodoRows extends Component {
+    render = () => (
+      <tr>
+        <td>{this.props.item.action}</td>
+        <td>
+          <input 
+            type="checkbox"
+            checked={this.props.item.done}
+            onChange ={ () => this.props.callback(this.props.item)}
+          />
+        </td>
+      </tr>
+    );
+}
+```
