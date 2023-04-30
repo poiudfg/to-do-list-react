@@ -18,31 +18,31 @@ export default class App extends Component {
         };
     }
 
-    updateValue = (event) => {
-        this.setState({ newTodo: event.target.value });
+    updateValue = (event) => { 
+        this.setState({ newTodo: event.target.value }); // update newTodo จาก event ที่เกิดขึ้น นำค่า value ไปใส่ newTodo
     };
 
-    newTodo = () => {
-        this.setState({
+    newTodo = () => { //ฟังก์ชันเซ็ตค่าไอเทมใหม่ลงไปใน todoItems
+        this.setState({ //set ค่า ใน State
             todoItems: [
-                ...this.state.todoItems,
-                { action: this.state.newTodo, done: false },
+                ...this.state.todoItems, //แพร่ไอเทมที่มีอยู่ออกมา
+                { action: this.state.newTodo, done: false },//add todoItems อันใหม่ อ้างอิงจากค่า newTodo และให้ค่า done เป็น False
             ],
         });
     };
 
-    todoRows = () =>
+    todoRows = () => //นำค่าใน todoItems โชว์ขึ้นหน้าเว็บ
         this.state.todoItems.map((item) => ( <
-            TodoRows key = { item.action }
-            item = { item }
-            callback = { this.toggleDone }
+            TodoRows key = { item.action } //ส่งค่าไปที่ component TodoRows โดยให้ key คือ item.action
+            item = { item } //ค่าใน array แต่ละตัว
+            callback = { this.toggleDone } //ฟังชั่นที่ใช้สำหรับ callback เรียกใช้ตัว toggleDone
             />
         ));
 
-    toggleDone = (todo) =>
-        this.setState({
-            todoItems: this.state.todoItems.map((item) =>
-                item.action === todo.action ? {...item, done: true } : item
+    toggleDone = (todo) => //เปลี่ยนค่าภายใน checkbox เป็น true
+        this.setState({ //set ค่า ใน State
+            todoItems: this.state.todoItems.map((item) => //map ค่าที่ละ item
+                item.action === todo.action ? {...item, done: true } : item //ถ้าชื่อ item.action เหมือนกันกับ todo.action ให้แแพร่ค่าของ item และทำการset ค่าของ done เป็น True ถ้าไม่จริงก็ไม่ทำอะไร
             ),
         });
 
@@ -54,7 +54,7 @@ export default class App extends Component {
                 </div> 
                 <div className = 'col-12' >
                     <input className = 'form-control' placeholder = 'Enter Text' value = { this.state.newTodo } onChange = { this.updateValue }/> 
-                    <button class = 'button' onClick = { this.newTodo } > Add </button> 
+                    <button class = 'button' onClick = { this.newTodo } > Add </button>
                 </div> 
                 <div className = 'col-12' >
                     <table className = 'table' >
