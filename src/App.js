@@ -53,7 +53,9 @@ export default class App extends Component {
                     <Navbar name = { this.state.userName }/> 
                 </div> 
                 <div className = 'col-12' >
-                    <input className = 'form-control' placeholder = 'Enter Text' value = { this.state.newTodo } onChange = { this.updateValue }/> 
+                    {/*this.uppdateValue จะทำหน้าที่ดักจับeventและ นำค่าplaceไว้ใน newTodo*/}
+                    {/*ส่วนของValue จะนำค่าที่อยู่ในnewTodo มาแสดงที่ช่อง Input*/}
+                    <input className = 'form-control' placeholder = 'Enter Text' value = { this.state.newTodo } onChange = { this.updateValue }/>
                     <button class = 'button' onClick = { this.newTodo } > Add </button>
                 </div> 
                 <div className = 'col-12' >
